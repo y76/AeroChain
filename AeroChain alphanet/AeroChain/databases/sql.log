@@ -1,0 +1,50 @@
+timestamp: 2022-11-16T19:33:22.425563
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "username" CHAR(512) UNIQUE,
+    "email" CHAR(512) UNIQUE,
+    "password" CHAR(512),
+    "first_name" CHAR(512),
+    "last_name" CHAR(512),
+    "sso_id" CHAR(512),
+    "action_token" CHAR(512),
+    "last_password_change" TIMESTAMP,
+    "past_passwords_hash" TEXT
+);
+success!
+timestamp: 2022-11-16T19:33:22.447557
+CREATE TABLE "auth_user_tag_groups"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "tagpath" CHAR(512),
+    "record_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2022-11-16T19:33:22.461571
+CREATE TABLE "setAirline"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email" CHAR(512),
+    "airline_name" TEXT,
+    "ts" TIMESTAMP,
+    "approved" CHAR(1)
+);
+success!
+timestamp: 2022-11-16T19:33:22.472558
+CREATE TABLE "doNotFly"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_email_of_airline" CHAR(512),
+    "first_name" TEXT,
+    "last_name" TEXT,
+    "birth_date" TEXT,
+    "reason" TEXT,
+    "ts" TIMESTAMP
+);
+success!
+timestamp: 2022-11-16T19:33:22.483558
+CREATE TABLE "admin"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "account" TEXT,
+    "package" TEXT,
+    "component" TEXT,
+    "admin_badge" TEXT
+);
+success!

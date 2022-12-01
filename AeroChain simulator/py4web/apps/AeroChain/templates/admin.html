@@ -1,0 +1,42 @@
+[[extend 'layout.html']]
+<style>
+  h1 {text-align: center;}
+  p {text-align: center;}
+  div {text-align: center;}
+  </style>
+<div class="section">
+
+<h1>Admin Panel</h1>
+<table>
+[[for row in rows:]]
+<tr>
+  <th>User Email: [[=row.user_email]]</th>
+  <th>Airline Name: [[=row.airline_name]]</th>
+  <th>Status: 
+    <a href="[[=URL('approve/')]]/[[=row.id]]">
+      <button>
+        [[=row.approved]]
+      </button>
+    </a>
+  </th>
+</tr>
+<hr>
+[[pass]]
+</table>
+
+</div>
+
+
+
+<style>
+  .auth-container {
+    max-width: 80%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 20px;
+  }
+</style>
+<script src="js/index.js"></script>

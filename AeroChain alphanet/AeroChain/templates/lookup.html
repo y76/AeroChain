@@ -1,0 +1,47 @@
+[[extend 'layout.html']]
+
+<div class="section">
+
+  <h1>Passenger Lookup</h1>
+  <h5>Lookup a passenger on the Do Not Fly list. Your query will go through the Radix BlockChain.</h5>
+  [[=form]]
+
+
+  [[if len(name)>0:]]
+    <h6>[[=name]] is <b><i>NOT</i></b> on the do not fly list</h6>
+  [[pass]]
+  [[if len(name)==0:]]
+  [[if len(rows)>0:]]
+  <h6>[[=rows[0].get("First_Name")]] [[=rows[0].get("Last_Name")]] is <b><i>ON</i></b> the do not fly list</h6>
+  [[pass]]
+    <table style="visibility:[[=airline]]">
+    [[for row in rows:]]
+    <tr>
+      <th><h6 style="visibility:[[=airline]]">[[=row.get("Reason")]]</h6></tr>
+    </tr>
+    [[pass]]
+    </table>
+  [[pass]]
+  <!--[[for row in rows:]]
+    [[=row.get("First_Name")]]
+  [[pass]]
+  -->
+</div>
+
+
+
+<style>
+  .auth-container {
+    max-width: 80%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  h1 {text-align: center;}
+  h5 {text-align: center;}
+  .vvv{text-align: center;}
+</style>
+<script src="js/index.js"></script>

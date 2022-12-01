@@ -1,0 +1,39 @@
+[[extend 'layout.html']]
+
+<div class="section">
+
+  <h1>Welcome to AeroChain!</h1>
+  <h3>A decentralized way of keeping you safe in the air.</h3>
+  <div class="auth-container">
+       <div class="vvv">
+        <a href="[[=URL('lookup')]]"><button>Check For user on do not fly list</button></a>
+       </div>
+       <div class="vvv">
+        <a href="[[=URL('addToNoFly')]]" style="visibility:[[=airline]]"><button>Add someone to do not fly list</button></a>
+       </div>
+       <div class="vvv">
+        <a href="[[=URL('register')]]" style="visibility:[[=visible]]"><button>Register As An Airline</button></a>
+       </div>
+  </div>
+
+
+
+</div>
+
+
+
+<style>
+  .auth-container {
+    max-width: 80%;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  h1 {text-align: center;}
+  h3 {text-align: center;}
+  .vvv{text-align: center;}
+</style>
+<script src="js/index.js"></script>
